@@ -89,9 +89,9 @@ export class Test {
     console.log('Y:', totalY);
 
     this.router.navigate(['/result'], {
-      state: {
-        x: totalX,
-        y: totalY
+      queryParams: {
+        x: totalX.toFixed(5),
+        y: totalY.toFixed(5)
       }
     });
   }

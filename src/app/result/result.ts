@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -13,18 +13,17 @@ export class Result {
   x = 0;
   y = 0;
 
-  constructor(private router: Router) {
-    const navigation = this.router.getCurrentNavigation();
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.route.queryParams.subscribe(params => {
+      const xParam = Number(params['x']);
+      const yParam = Number(params['y']);
 
-    const state = navigation?.extras.state as {
-      x?: number;
-      y?: number;
-    };
-
-    if (state) {
-      this.x = state.x ?? 0;
-      this.y = state.y ?? 0;
-    }
+      this.x = Number.isFinite(xParam) ? xParam : 0;
+      this.y = Number.isFinite(yParam) ? yParam : 0;
+    });
   }
 
   get pointLeft(): number {
