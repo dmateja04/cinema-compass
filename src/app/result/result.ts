@@ -37,4 +37,8 @@ export class Result {
   restartTest(): void {
     this.router.navigate(['/test']);
   }
+
+  copyLink(): void {
+    navigator.clipboard.writeText(window.location.href);
+  }
 }

@@ -44,10 +44,6 @@ export class Test {
   }
 
   nextPage(): void {
-    if (!this.isCurrentPageComplete()) {
-      return;
-    }
-
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
       window.scrollTo(0, 0);
@@ -62,9 +58,6 @@ export class Test {
   }
 
   finishTest(): void {
-    if (!this.isCurrentPageComplete()) {
-      return;
-    }
 
     let totalX = 0;
     let totalY = 0;
