@@ -2,8 +2,16 @@
 
   <h1>Your Cinema Compass</h1>
 
+
+
+
   <div class="compass">
 
+    <div class="quadrant quadrant-top-left"></div>
+    <div class="quadrant quadrant-top-right"></div>
+    <div class="quadrant quadrant-bottom-left"></div>
+    <div class="quadrant quadrant-bottom-right"></div>
+    
     <div class="vertical-axis"></div>
     <div class="horizontal-axis"></div>
 
@@ -31,10 +39,14 @@
 
   </div>
 
+  <p>
+    You are :
+  </p>
   <div class="coordinates">
-    <p>X: {{ x | number:'1.3-3' }}</p>
-    <p>Y: {{ y | number:'1.3-3' }}</p>
+    <p>{{ xDescription }}</p>
+    <p>{{ yDescription }}</p>
   </div>
+
 
   <button
     type="button"

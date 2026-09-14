@@ -69,7 +69,18 @@
 
 .label {
   position: absolute;
-  font-weight: bold;
+  z-index: 4;
+
+  font-weight: 800;
+  font-size: 20px;
+  color: black;
+
+  /* beli outline */
+  -webkit-text-stroke: 4px white;
+  paint-order: stroke fill;
+
+  /* mali dodatni shadow za čitljivost */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .label.top {
@@ -102,4 +113,140 @@
 
 .coordinates p {
   margin: 4px;
+}
+
+.compass {
+  position: relative;
+
+  width: min(90vw, 600px);
+  aspect-ratio: 1 / 1;
+
+  border: 2px solid black;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(180, 180, 180, 0.7) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(180, 180, 180, 0.7) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      transparent 50%,
+      rgba(0, 0, 0, 0) 50%
+    );
+
+  background-size:
+    5% 100%,
+    100% 5%,
+    100% 100%;
+
+  overflow: hidden;
+}
+
+.quadrant {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 0;
+}
+
+.quadrant-top-left {
+  top: 0;
+  left: 0;
+  background: #ff7b7b;
+}
+
+.quadrant-top-right {
+  top: 0;
+  right: 0;
+  background: #4ca7e8;
+}
+
+.quadrant-bottom-left {
+  bottom: 0;
+  left: 0;
+  background: #8ee28e;
+}
+
+.quadrant-bottom-right {
+  bottom: 0;
+  right: 0;
+  background: #fff36f;
+}
+
+.compass::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(180, 180, 180, 0.8) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(180, 180, 180, 0.8) 1px,
+      transparent 1px
+    );
+
+  background-size: 5% 5%;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vertical-axis {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 3px;
+
+  background: black;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+.horizontal-axis {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 50%;
+
+  height: 3px;
+
+  background: black;
+
+  transform: translateY(-50%);
+
+  z-index: 2;
+}
+
+.result-point {
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: white;
+  border: 3px solid black;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
 }

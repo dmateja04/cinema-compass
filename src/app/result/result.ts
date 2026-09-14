@@ -26,6 +26,26 @@ export class Result {
     });
   }
 
+  get xDescription(): string {
+    const percentage = Math.abs(this.x * 100).toFixed(0);
+
+    if (this.x >= 0) {
+      return `${percentage}% Fantastic`;
+    }
+
+    return `${percentage}% Realistic`;
+  }
+
+  get yDescription(): string {
+    const percentage = Math.abs(this.y * 100).toFixed(0);
+
+    if (this.y >= 0) {
+      return `${percentage}% Classic`;
+    }
+
+    return `${percentage}% Modern`;
+  }
+
   get pointLeft(): number {
     return ((this.x + 1) / 2) * 100;
   }
