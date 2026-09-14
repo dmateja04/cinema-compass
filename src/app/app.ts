@@ -11,3 +11,8 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   title="New app"
 }
+
+
+//git add .
+//git commit -m "Improve result page"
+//git push
