@@ -1,0 +1,46 @@
+<div class="result-container">
+
+  <h1>Your Cinema Compass</h1>
+
+  <div class="compass">
+
+    <div class="vertical-axis"></div>
+    <div class="horizontal-axis"></div>
+
+    <div class="label top">
+      Classic
+    </div>
+
+    <div class="label bottom">
+      Modern
+    </div>
+
+    <div class="label left">
+      Realistic
+    </div>
+
+    <div class="label right">
+      Fantastic
+    </div>
+
+    <div
+      class="result-point"
+      [style.left.%]="pointLeft"
+      [style.top.%]="pointTop"
+    ></div>
+
+  </div>
+
+  <div class="coordinates">
+    <p>X: {{ x | number:'1.3-3' }}</p>
+    <p>Y: {{ y | number:'1.3-3' }}</p>
+  </div>
+
+  <button
+    type="button"
+    (click)="restartTest()"
+  >
+    Take the test again
+  </button>
+
+</div>

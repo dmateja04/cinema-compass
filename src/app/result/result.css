@@ -1,0 +1,105 @@
+.result-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.compass {
+  position: relative;
+
+  width: min(90vw, 600px);
+  aspect-ratio: 1 / 1;
+
+  margin: 40px auto;
+
+  border: 2px solid #aaa;
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0.03) 50%,
+      rgba(255,255,255,0.06) 50%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.03) 50%,
+      rgba(255,255,255,0.06) 50%
+    );
+}
+
+.vertical-axis {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+  background: #aaa;
+}
+
+.horizontal-axis {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 50%;
+
+  height: 1px;
+  background: #aaa;
+}
+
+.result-point {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: white;
+  border: 3px solid black;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+}
+
+.label {
+  position: absolute;
+  font-weight: bold;
+}
+
+.label.top {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.label.bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.label.left {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.label.right {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.coordinates {
+  margin-bottom: 30px;
+}
+
+.coordinates p {
+  margin: 4px;
+}
