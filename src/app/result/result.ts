@@ -55,7 +55,7 @@ export class Result {
   }
 
   restartTest(): void {
-    this.router.navigate(['/test']);
+    this.router.navigate(['/']);
   }
 
   copyLink(): void {

@@ -1,62 +1,61 @@
-<div class="result-container">
+<div class="result-page">
 
-  <h1>Your Cinema Compass</h1>
+  <div class="result-container">
 
+    <h1>Your Cinema Compass</h1>
 
+    <div class="compass">
 
+      <div class="quadrant quadrant-top-left"></div>
+      <div class="quadrant quadrant-top-right"></div>
+      <div class="quadrant quadrant-bottom-left"></div>
+      <div class="quadrant quadrant-bottom-right"></div>
 
-  <div class="compass">
+      <div class="vertical-axis"></div>
+      <div class="horizontal-axis"></div>
 
-    <div class="quadrant quadrant-top-left"></div>
-    <div class="quadrant quadrant-top-right"></div>
-    <div class="quadrant quadrant-bottom-left"></div>
-    <div class="quadrant quadrant-bottom-right"></div>
-    
-    <div class="vertical-axis"></div>
-    <div class="horizontal-axis"></div>
+      <div class="label top">Classic</div>
+      <div class="label bottom">Modern</div>
+      <div class="label left">Realistic</div>
+      <div class="label right">Fantastic</div>
 
-    <div class="label top">
-      Classic
+      <div
+        class="result-point"
+        [style.left.%]="pointLeft"
+        [style.top.%]="pointTop"
+      ></div>
+
     </div>
 
-    <div class="label bottom">
-      Modern
+    <div class="result-summary">
+      <p class="you-are">You are</p>
+
+      <div class="coordinates">
+        <p>{{ xDescription }}</p>
+        <p>{{ yDescription }}</p>
+      </div>
     </div>
 
-    <div class="label left">
-      Realistic
-    </div>
+    <div class="result-actions">
 
-    <div class="label right">
-      Fantastic
-    </div>
+      <button
+        type="button"
+        class="result-button primary"
+        (click)="copyLink()"
+      >
+        Copy result link
+      </button>
 
-    <div
-      class="result-point"
-      [style.left.%]="pointLeft"
-      [style.top.%]="pointTop"
-    ></div>
+      <button
+        type="button"
+        class="result-button secondary"
+        (click)="restartTest()"
+      >
+        Take the test again
+      </button>
+
+    </div>
 
   </div>
-
-  <p>
-    You are :
-  </p>
-  <div class="coordinates">
-    <p>{{ xDescription }}</p>
-    <p>{{ yDescription }}</p>
-  </div>
-
-
-  <button
-    type="button"
-    (click)="restartTest()"
-  >
-    Take the test again
-  </button>
-
-  <button type="button" (click)="copyLink()">
-    Copy result link
-  </button>
 
 </div>

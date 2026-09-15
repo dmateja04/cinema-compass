@@ -1,81 +1,74 @@
-<div class="test-container">
+<div class="test-page">
+  <div class="test-container">
 
-  <div class="page-header">
-    <h1>Cinema Compass</h1>
+    <div class="page-header">
+      <h1>Cinema Compass</h1>
+      <p>Page {{ currentPage }} / {{ totalPages }}</p>
 
-    <p>
-      Page {{ currentPage }} / {{ totalPages }}
-    </p>
-  </div>
-
-
-  @for (question of currentQuestions; track question.id) {
-
-    <div class="question">
-
-      <h2>
-        {{ question.id }}. {{ question.text }}
-      </h2>
-
-      <div class="answers">
-
-        @for (answer of question.answers; track answer.id) {
-
-          <button
-            type="button"
-            class="answer-button"
-            [class.selected]="isSelected(question.id, answer.id)"
-            (click)="selectAnswer(question.id, answer.id)"
-          >
-            {{ answer.text }}
-          </button>
-
-        }
-
+      <div class="progress">
+        <div
+          class="progress-fill"
+          [style.width.%]="(currentPage / totalPages) * 100"
+        ></div>
       </div>
+    </div>
+
+    @for (question of currentQuestions; track question.id) {
+      <div class="question">
+        <h2>
+          {{ question.id }}. {{ question.text }}
+        </h2>
+
+        <div class="answers">
+          @for (answer of question.answers; track answer.id) {
+            <button
+              type="button"
+              class="answer-button"
+              [class.selected]="isSelected(question.id, answer.id)"
+              (click)="selectAnswer(question.id, answer.id)"
+            >
+              {{ answer.text }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    <div class="navigation">
+
+      @if (currentPage > 1) {
+        <button
+          type="button"
+          class="nav-button secondary"
+          (click)="previousPage()"
+        >
+          Previous
+        </button>
+      }
+
+      <div class="navigation-spacer"></div>
+
+      @if (currentPage < totalPages) {
+        <button
+          type="button"
+          class="nav-button primary"
+          (click)="nextPage()"
+        >
+          Next
+        </button>
+      }
+
+      @if (currentPage === totalPages) {
+        <button
+          type="button"
+          class="nav-button primary"
+          (click)="finishTest()"
+        >
+          See my result
+        </button>
+      }
 
     </div>
 
-  }
-
-
-  <div class="navigation">
-
-    @if (currentPage > 1) {
-
-      <button
-        type="button"
-        (click)="previousPage()"
-      >
-        Previous
-      </button>
-
-    }
-
-
-    @if (currentPage < totalPages) {
-
-      <button
-        type="button"
-        (click)="nextPage()"
-      >
-        Next
-      </button>
-
-    }
-
-
-    @if (currentPage === totalPages) {
-
-      <button
-        type="button"
-        (click)="finishTest()"
-      >
-        See my result
-      </button>
-
-    }
-
   </div>
-
 </div>

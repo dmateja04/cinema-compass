@@ -1,0 +1,138 @@
+:host {
+  display: block;
+}
+
+.home-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 24px;
+
+  background: transparent;
+}
+
+.home-content {
+  width: 100%;
+  max-width: 850px;
+
+  text-align: center;
+}
+
+/* NASLOV */
+
+h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.95;
+
+  font-weight: 800;
+  letter-spacing: -2px;
+
+  color: #25221d;
+}
+
+/* KRATAK OPIS */
+
+.subtitle {
+  margin: 22px 0 0;
+
+  font-size: 21px;
+  font-weight: 500;
+
+  color: #625b50;
+}
+
+/* DISCLAIMER */
+
+.disclaimer {
+  max-width: 700px;
+
+  margin: 42px auto 0;
+  padding: 22px 28px;
+
+  border: 1px solid rgba(60, 50, 40, 0.18);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  color: #514b42;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.disclaimer p {
+  margin: 0;
+}
+
+.disclaimer p + p {
+  margin-top: 8px;
+}
+
+/* START DUGME */
+
+.start-button {
+  margin-top: 38px;
+
+  min-width: 220px;
+  padding: 17px 36px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: #29251f;
+  color: #fffaf0;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.start-button:hover {
+  background: #413a30;
+  transform: translateY(-2px);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+  .home-page {
+    padding: 32px 18px;
+  }
+
+  h1 {
+    letter-spacing: -1px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .disclaimer {
+    margin-top: 32px;
+    padding: 18px 20px;
+
+    font-size: 15px;
+  }
+
+  .start-button {
+    width: 100%;
+    max-width: 320px;
+
+    margin-top: 30px;
+  }
+}
